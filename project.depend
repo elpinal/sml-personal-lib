@@ -1,0 +1,2 @@
+map.alc: queue.alc
+bst.alc: ordered.alc map.alc
