@@ -10,6 +10,6 @@ smlnj:
 	sml -m personal.cm
 
 alice:
-	alicec --no-warn-conventions --no-warn-unused-imports --dependency-file project.depend std.sml nat.sml queue.sml non_empty.sml ordered.sml map.sml bst.sml
+	alicec --no-warn-conventions --no-warn-unused-imports --dependency-file project.depend std.sml nat.sml queue.sml deque.sml non_empty.sml ordered.sml map.sml bst.sml
 
 .PHONY: mlkit mlton smlnj alice

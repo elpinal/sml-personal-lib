@@ -3,6 +3,7 @@ $(SML_LIB)/basis/basis.mlb
 std.sml
 nat.sml
 queue.sml
+deque.sml
 non_empty.sml
 ordered.sml
 map.sml
