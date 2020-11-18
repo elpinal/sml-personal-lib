@@ -33,6 +33,8 @@ signature MAP = sig
 
   (* Right-biased *)
   val union : 'a t -> 'a t -> 'a t
+
+  val union_with : ('a -> 'a -> 'a) -> 'a t -> 'a t -> 'a t
   val intersection : (key -> 'a -> 'b -> 'c) -> 'a t -> 'b t -> 'c t
 
   exception Duplicate of key
@@ -97,6 +99,16 @@ functor MakeMap (X : MAP_MIN) :> MAP where type key = X.key = struct
   fun union x y =
   let
     fun f acc k v = insert k v acc
+  in
+    fold_left f x y
+  end
+
+  fun union_with g x y =
+  let
+    fun f acc k v =
+      case lookup k x of
+           NONE    => insert k v acc
+         | SOME v' => insert k (g v' v) acc
   in
     fold_left f x y
   end
